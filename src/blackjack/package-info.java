@@ -5,4 +5,4 @@
  * @author Jon Hatfield
  *
  */
-package Blackjack;
+package blackjack;

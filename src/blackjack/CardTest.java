@@ -1,10 +1,7 @@
-package Blackjack;
-import static org.junit.Assert.*;
+package blackjack;
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
-
-import Blackjack.Card.Rank;
-import Blackjack.Card.Suit;
 
 /**
  * 

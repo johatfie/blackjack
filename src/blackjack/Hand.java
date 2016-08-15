@@ -1,7 +1,9 @@
 /**
  *
  */
-package Blackjack;
+package blackjack;
+
+import blackjack.Card.Rank;
 
 /**
  * @author Jon Hatfield

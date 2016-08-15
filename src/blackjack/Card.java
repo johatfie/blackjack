@@ -1,4 +1,4 @@
-package Blackjack;
+package blackjack;
 
 import java.util.ArrayList;
 
@@ -95,31 +95,14 @@ public class Card
          *         And an Ace can be worth 11 or 1.
          *         </p>
          */
-        public int value()
+        public int getValue()
         {
             return value;
         }
 
-        /**
-         * Increase the value of an ace from 1 to 11
-         */
-        public void increaseAce()
+        public void setValue( int value )
         {
-            if (this == Rank.ACE)
-            {
-                value = 11;
-            }
-        }
-
-        /**
-         * Reduce the value of an ace from 11 to 1
-         */
-        public void reduceAce()
-        {
-            if (this == Rank.ACE)
-            {
-                value = 1;
-            }
+            this.value = value;
         }
 
         private final String name;
@@ -156,6 +139,22 @@ public class Card
         return suit;
     }
 
+    /**
+     * @return Boolean for whether or not the card is an Ace
+     */
+    public Boolean isAce()
+    {
+        return rank == Rank.ACE;
+    }
+
+    /**
+     * @return Boolean for whether or not the card is a facecard or a 10
+     */
+    public Boolean isFacecard()
+    {
+        return rank.getValue() == 10;
+    }
+
     @Override
     public String toString()
     {
@@ -175,7 +174,14 @@ public class Card
         {
             for( Rank r : Rank.values() )
             {
-                deck.add( new Card( r, s ) );
+                if( r != Rank.ACE )
+                {
+                    deck.add( new Card( r, s ) );
+                }
+                else
+                {
+                    deck.add( new Ace( s ) );
+                }
             }
         }
 
@@ -198,13 +204,20 @@ public class Card
         {
             for( Rank r : Rank.values() )
             {
-                theShoe.add( new Card( r, s ) );
+                if( r != Rank.ACE )
+                {
+                    theShoe.add( new Card( r, s ) );
+                }
+                else
+                {
+                    theShoe.add( new Ace( s ) );
+                }
             }
         }
     }
 
 
-    private final Suit suit;
-    private final Rank rank;
+    protected final Suit suit;
+    protected final Rank rank;
 
 }
