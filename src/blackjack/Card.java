@@ -140,6 +140,14 @@ public class Card
     }
 
     /**
+     * @return The value of the card.
+     */
+    public int getValue()
+    {
+        return rank.getValue();
+    }
+
+    /**
      * @return Boolean for whether or not the card is an Ace
      */
     public Boolean isAce()
@@ -148,9 +156,9 @@ public class Card
     }
 
     /**
-     * @return Boolean for whether or not the card is a facecard or a 10
+     * @return Boolean for whether or not the card is a face card or a 10
      */
-    public Boolean isFacecard()
+    public Boolean isFaceCard()
     {
         return rank.getValue() == 10;
     }
@@ -219,5 +227,4 @@ public class Card
 
     protected final Suit suit;
     protected final Rank rank;
-
 }

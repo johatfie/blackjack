@@ -1,11 +1,12 @@
 package blackjack;
 
-public class Ace extends Card {
+public class Ace extends Card
+{
 
-	public Ace(Suit suit)
+    public Ace(Suit suit)
     {
-		super(Rank.ACE, suit);
-	}
+        super(Rank.ACE, suit);
+    }
 
     /**
      * Set the value of an Ace to 11
