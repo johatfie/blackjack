@@ -1,8 +1,15 @@
 package blackjack;
 
+/**
+ * @author jhatfield
+ *
+ */
 public class Ace extends Card
 {
 
+    /**
+     * @param suit
+     */
     public Ace(Suit suit)
     {
         super(Rank.ACE, suit);
@@ -13,7 +20,7 @@ public class Ace extends Card
      */
     public void increaseAce()
     {
-        rank.setValue( 11 );
+        mRank.setValue( 11 );
     }
 
     /**
@@ -21,6 +28,6 @@ public class Ace extends Card
      */
     public void reduceAce()
     {
-        rank.setValue( 1 );
+        mRank.setValue( 1 );
     }
 }

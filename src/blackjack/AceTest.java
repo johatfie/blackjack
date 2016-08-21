@@ -14,6 +14,9 @@ import org.junit.Test;
 public class AceTest extends Ace
 {
 
+    /**
+     * 
+     */
     public AceTest()
     {
         super(Card.Suit.CLUBS);

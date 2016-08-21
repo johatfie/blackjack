@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * @author Jon Hatfield
  *         <p>
- *         Represents a standard playing card with a rank and a suit, e.g. an
+ *         Represents a standard playing card with a mRank and a mSuit, e.g. an
  *         Ace of Clubs
  *         </p>
  */
@@ -34,18 +34,18 @@ public class Card
 
         private Suit( String name )
         {
-            this.name = name;
+            this.mName = name;
         }
 
         /**
-         * @return The name of the suit
+         * @return The mName of the mSuit
          */
         public String getName()
         {
-            return name;
+            return mName;
         }
 
-        private final String name;
+        private final String mName;
     }
 
     /**
@@ -75,17 +75,17 @@ public class Card
         private Rank( String name, int value )
         {
             // @formatter:off
-            this.name  = name;
-            this.value = value;
+            this.mName  = name;
+            this.mValue = value;
             // @formatter:on
         }
 
         /**
-         * @return The name of the rank, e.g. Ace, Two, King, etc.
+         * @return The mName of the mRank, e.g. Ace, Two, King, etc.
          */
         public String getName()
         {
-            return name;
+            return mName;
         }
 
         /**
@@ -97,46 +97,49 @@ public class Card
          */
         public int getValue()
         {
-            return value;
+            return mValue;
         }
 
+        /**
+         * @param value
+         */
         public void setValue( int value )
         {
-            this.value = value;
+            this.mValue = value;
         }
 
-        private final String name;
-        private int          value;
+        private final String mName;
+        private int          mValue;
     }
 
 
     /**
-     * @param rank
+     * @param rank 
      *            The rank of the card
-     * @param suit
+     * @param suit 
      *            The suit of the card
      *
      */
     public Card( Rank rank, Suit suit )
     {
-        this.rank = rank;
-        this.suit = suit;
+        this.mRank = rank;
+        this.mSuit = suit;
     }
 
     /**
-     * @return The rank of the card.
+     * @return The mRank of the card.
      */
     public Rank getRank()
     {
-        return rank;
+        return mRank;
     }
 
     /**
-     * @return The suit of the card.
+     * @return The mSuit of the card.
      */
     public Suit getSuit()
     {
-        return suit;
+        return mSuit;
     }
 
     /**
@@ -144,7 +147,7 @@ public class Card
      */
     public int getValue()
     {
-        return rank.getValue();
+        return mRank.getValue();
     }
 
     /**
@@ -152,7 +155,7 @@ public class Card
      */
     public Boolean isAce()
     {
-        return rank == Rank.ACE;
+        return mRank == Rank.ACE;
     }
 
     /**
@@ -160,19 +163,18 @@ public class Card
      */
     public Boolean isFaceCard()
     {
-        return rank.getValue() == 10;
+        return mRank.getValue() == 10;
     }
 
     @Override
     public String toString()
     {
-        return rank.getName() + " of " + suit.getName();
+        return mRank.getName() + " of " + mSuit.getName();
     }
 
     /**
      * @return An ArrayList&lt;Card&gt; containing 52 cards as in a standard
-     *         deck of
-     *         playing cards
+     *         deck of playing cards
      */
     public static ArrayList<Card> getDeck()
     {
@@ -225,6 +227,6 @@ public class Card
     }
 
 
-    protected final Suit suit;
-    protected final Rank rank;
+    protected final Suit mSuit;
+    protected final Rank mRank;
 }
