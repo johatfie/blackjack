@@ -3,7 +3,9 @@
  */
 package blackjack;
 
-import blackjack.Card.Rank;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author Jon Hatfield
@@ -17,28 +19,28 @@ public class Hand
      */
     public Hand()
     {
-        // TODO Auto-generated constructor stub
+        mCards = new ArrayList<Card>(21);
     }
 
+    /**
+     * @return
+     */
     public int getScore()
     {
         int score = 0;
-        int numberOfAces = 0;
 
-        for( Card c : cards )
+        for( Card c : mCards )
         {
-            score += c.getRank().getValue();
-
-            if( c.getRank() == Rank.ACE )
-            {
-                ++numberOfAces;
-            }
+            score += c.getValue();
         }
 
-        if( score > 21 )
+        for( Iterator<Card> cIter = mCards.iterator(); cIter.hasNext() && score > 21; )
         {
-            for( int i = numberOfAces; i > 0 && score > 21; --i )
+            Card c = cIter.next();
+
+            if( c.isAce() && c.getValue() == 11 )
             {
+                ( (Ace) c ).reduceAce();
                 score -= 10;
             }
         }
@@ -51,5 +53,5 @@ public class Hand
 
     }
 
-    private Card[] cards;
+    private List<Card> mCards;
 }
