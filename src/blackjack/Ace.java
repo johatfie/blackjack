@@ -1,7 +1,7 @@
 package blackjack;
 
 /**
- * @author jhatfield
+ * @author Jon Hatfield
  *
  */
 public class Ace extends Card

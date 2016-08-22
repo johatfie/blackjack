@@ -9,7 +9,7 @@ import org.junit.Test;
  */
 
 /**
- * @author jhatfield
+ * @author Jon Hatfield
  *
  */
 public class CardTest
