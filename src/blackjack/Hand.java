@@ -50,6 +50,7 @@ public class Hand
 
     public Card getCard()
     {
+        return null;
 
     }
 

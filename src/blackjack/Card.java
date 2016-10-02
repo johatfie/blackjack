@@ -1,6 +1,7 @@
 package blackjack;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 /**
  * @author Jon Hatfield
  *         <p>
- *         Represents a standard playing card with a mRank and a mSuit, e.g. an
+ *         Represents a standard playing card with a Rank and a Suit, e.g. an
  *         Ace of Clubs
  *         </p>
  */
@@ -38,7 +39,7 @@ public class Card
         }
 
         /**
-         * @return The mName of the mSuit
+         * @return The name of the Suit
          */
         public String getName()
         {
@@ -81,7 +82,7 @@ public class Card
         }
 
         /**
-         * @return The mName of the mRank, e.g. Ace, Two, King, etc.
+         * @return The name of the Rank, e.g. Ace, Two, King, etc.
          */
         public String getName()
         {
@@ -114,20 +115,21 @@ public class Card
 
 
     /**
-     * @param rank 
+     * @param rank
      *            The rank of the card
-     * @param suit 
+     * @param suit
      *            The suit of the card
      *
      */
     public Card( Rank rank, Suit suit )
     {
-        this.mRank = rank;
-        this.mSuit = suit;
+        this.mRank  = rank;
+        this.mSuit  = suit;
+        this.faceUp = false;
     }
 
     /**
-     * @return The mRank of the card.
+     * @return The Rank of the card.
      */
     public Rank getRank()
     {
@@ -135,7 +137,7 @@ public class Card
     }
 
     /**
-     * @return The mSuit of the card.
+     * @return The Suit of the card.
      */
     public Suit getSuit()
     {
@@ -151,19 +153,37 @@ public class Card
     }
 
     /**
-     * @return Boolean for whether or not the card is an Ace
+     * @return boolean for whether or not the card is an Ace
      */
-    public Boolean isAce()
+    public boolean isAce()
     {
         return mRank == Rank.ACE;
     }
 
     /**
-     * @return Boolean for whether or not the card is a face card or a 10
+     * @return boolean for whether or not the card is a face card or a 10
      */
-    public Boolean isFaceCard()
+    public boolean isFaceCard()
     {
         return mRank.getValue() == 10;
+    }
+
+    public boolean getFaceUp()
+    {
+        return faceUp;
+    }
+
+    public void setFaceUp( boolean up )
+    {
+        faceUp = up;
+    }
+
+    /**
+     * Turn the card face up
+     */
+    public void revealCard()
+    {
+        faceUp = true;
     }
 
     @Override
@@ -173,12 +193,12 @@ public class Card
     }
 
     /**
-     * @return An ArrayList&lt;Card&gt; containing 52 cards as in a standard
+     * @return An List&lt;Card&gt; containing 52 cards as in a standard
      *         deck of playing cards
      */
-    public static ArrayList<Card> getDeck()
+    public static List<Card> getDeck()
     {
-        ArrayList<Card> deck = new ArrayList<Card>( 52 );
+        List<Card> deck = new ArrayList<Card>( 52 );
 
         for( Suit s : Suit.values() )
         {
@@ -200,15 +220,15 @@ public class Card
 
     /**
      * @param theShoe
-     *            An ArrayList&lt;Card&gt;
+     *            A List&lt;Card&gt;
      *            <p>
-     *            Appends a deck of cards to the provided ArrayList&lt;Card&gt;
+     *            Appends a deck of cards to the provided List&lt;Card&gt;
      *            </p>
      *            <p>
      *            Used to load a "shoe" with multiple decks of playing cards
      *            </p>
      */
-    public static void getDeck( ArrayList<Card> theShoe )
+    public static void getDeck( List<Card> theShoe )
     {
         for( Suit s : Suit.values() )
         {
@@ -229,4 +249,5 @@ public class Card
 
     protected final Suit mSuit;
     protected final Rank mRank;
+    protected boolean faceUp;
 }

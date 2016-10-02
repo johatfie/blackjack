@@ -17,6 +17,7 @@ public class CardTest
     Card deuce = new Card( Card.Rank.DEUCE, Card.Suit.CLUBS );
     Card king  = new Card( Card.Rank.KING, Card.Suit.DIAMONDS );
     Card ten   = new Card( Card.Rank.TEN, Card.Suit.SPADES );
+    Card ace   = new Ace( Card.Suit.SPADES );
 
     /**
      * @throws java.lang.Exception
@@ -81,6 +82,18 @@ public class CardTest
         assertTrue( ten.getSuit() == Card.Suit.SPADES );
         assertTrue( king.getSuit() == Card.Suit.DIAMONDS );
         assertTrue( deuce.getSuit() == Card.Suit.CLUBS );
+    }
+
+    /**
+     * Test method for {@link Card#getSuit()}.
+     */
+    @Test
+    public final void testGetValue()
+    {
+        assertTrue( ten.getValue() == 10 );
+        assertTrue( king.getValue() == 10 );
+        assertTrue( deuce.getValue() == 2 );
+        assertTrue( ace.getValue() == 11 );
     }
 
     /**
