@@ -12,6 +12,10 @@ import java.util.List;
  * @author Jon Hatfield
  *
  */
+/**
+ * @author jon
+ *
+ */
 public class Hand
 {
 
@@ -58,5 +62,8 @@ public class Hand
 
     }
 
+    /**
+     * 
+     */
     private List<Card> mCards;
 }

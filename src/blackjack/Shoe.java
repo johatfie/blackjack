@@ -134,6 +134,9 @@ public class Shoe
         return mTheShoe.isEmpty();
     }
 
+    /**
+     * 
+     */
     private void reloadShoe()
     {
         shoeMutex.lock();

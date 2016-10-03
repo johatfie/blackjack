@@ -56,6 +56,9 @@ public class Player
     }
 
 
+    /**
+     * @param dollars
+     */
     private void addToBank( final int dollars )
     {
         bankMutex.lock();
@@ -70,6 +73,9 @@ public class Player
         }
     }
 
+    /**
+     * @return
+     */
     private int cashOutBank()
     {
         int remaining;
@@ -88,8 +94,27 @@ public class Player
         return remaining;
     }
 
+    /**
+     * 
+     */
     private void startNewHand()
     {
+    }
+
+    /**
+     * @return the hand
+     */
+    public Hand getHand()
+    {
+        return hand;
+    }
+
+    /**
+     * @param hand the hand to set
+     */
+    public void setHand( Hand hand )
+    {
+        this.hand = hand;
     }
 
     private int bank;
