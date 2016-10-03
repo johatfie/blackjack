@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+
 /**
  * @author Jon Hatfield
  *
@@ -19,11 +20,11 @@ public class Hand
      */
     public Hand()
     {
-        mCards = new ArrayList<Card>(21);
+        mCards = new ArrayList<Card>( 21 );
     }
 
     /**
-     * @return
+     * @return The score for the cards in the hand
      */
     public int getScore()
     {
@@ -38,7 +39,7 @@ public class Hand
         {
             Card c = cIter.next();
 
-            if( c.isAce() && c.getValue() == 11 )
+            if (c.isAce() && c.getValue() == 11)
             {
                 ( (Ace) c ).reduceAce();
                 score -= 10;
@@ -48,6 +49,9 @@ public class Hand
         return score;
     }
 
+    /**
+     * @return
+     */
     public Card getCard()
     {
         return null;

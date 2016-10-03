@@ -1,5 +1,6 @@
 package blackjack;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -123,8 +124,8 @@ public class Card
      */
     public Card( Rank rank, Suit suit )
     {
-        this.mRank  = rank;
-        this.mSuit  = suit;
+        this.mRank = rank;
+        this.mSuit = suit;
         this.faceUp = false;
     }
 
@@ -168,11 +169,18 @@ public class Card
         return mRank.getValue() == 10;
     }
 
+    /**
+     * @return A boolean representing whether or not the card is face up
+     */
     public boolean getFaceUp()
     {
         return faceUp;
     }
 
+    /**
+     * @param up 
+     *            boolean representing whether or not to set the card face up
+     */
     public void setFaceUp( boolean up )
     {
         faceUp = up;
@@ -249,5 +257,5 @@ public class Card
 
     protected final Suit mSuit;
     protected final Rank mRank;
-    protected boolean faceUp;
+    protected boolean    faceUp;
 }

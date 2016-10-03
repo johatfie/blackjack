@@ -3,14 +3,16 @@
  */
 package blackjack;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+
 /**
- * @author jon
+ * @author Jon Hatfield
  *
  */
 public class Shoe
@@ -18,11 +20,19 @@ public class Shoe
 
     private static Shoe instance;
 
+    /**
+     * @return A reference to the shoe singleton instance
+     */
     public static Shoe getInstance()
     {
         return getInstance( 6 );
     }
 
+    /**
+     * @param numberOfDecks
+     *            The number of decks to load into the shoe
+     * @return A reference to the shoe singleton instance
+     */
     public static Shoe getInstance( int numberOfDecks )
     {
         if( instance == null )
@@ -40,29 +50,31 @@ public class Shoe
     }
 
 
-    private final int mNumberOfDecks;
-    private final int mNumberOfCards;
-
-    private List<Card> mTheShoe;
-
-    private final Lock shoeMutex;
+    private final int        mNumberOfDecks;
+    private final int        mNumberOfCards;
+    private final Lock       shoeMutex;
+    private final List<Card> mTheShoe;
 
 
     /**
-     *
+     * @param numberOfDecks
+     *            The number of decks to load into the shoe
      */
     private Shoe( int numberOfDecks )
     {
         // TODO: throw numberOfDecks exception for <1 deck
         mNumberOfDecks = numberOfDecks;
         mNumberOfCards = numberOfDecks * 52;
-        mTheShoe       = new ArrayList<Card>( mNumberOfCards );
-        shoeMutex      = new ReentrantLock();
+        mTheShoe = new ArrayList<Card>( mNumberOfCards );
+        shoeMutex = new ReentrantLock();
 
         reloadShoe();
     }
 
 
+    /**
+     * @return The next card from the front of the shoe
+     */
     public Card dealCard()
     {
         Card card;
@@ -75,7 +87,7 @@ public class Shoe
                 reloadShoe();
             }
 
-            card = mTheShoe.get(0);
+            card = mTheShoe.get( 0 );
         }
         finally
         {
@@ -85,11 +97,18 @@ public class Shoe
         return card;
     }
 
+    /**
+     * @return A double between 0.0 and 1.0 representing the fraction of the
+     *         cards remaining in the shoe
+     */
     public double fractionOfCardsRemaining()
     {
         return (double) numberOfCardsRemaining() / mNumberOfCards;
     }
 
+    /**
+     * @return The number of cards left in the shoe
+     */
     public int numberOfCardsRemaining()
     {
         int size = mNumberOfCards;
